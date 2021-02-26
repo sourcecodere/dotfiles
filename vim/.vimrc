@@ -62,7 +62,8 @@ let g:lightline = {
 "
 filetype plugin indent on
 syntax on
-set background=light
+set background=dark
+" set background=light
 
 " These are needed for true color support in terminals other than xterm when
 " using `termguicolors`. A notable example is tmux terminals.
