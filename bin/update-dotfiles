@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e -u
+
+dotfiles="/opt/src/dotfiles"
+install_script="$dotfiles/bin/install-dotfiles"
+
+update_repo () {
+    git -C "$dotfiles" pull --recurse-submodules
+    git -C "$dotfiles" submodule update --init
+}
+
+update_repo
+"$install_script"

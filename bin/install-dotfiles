@@ -1,0 +1,31 @@
+#!/bin/bash
+set -e -u
+
+dotfiles="/opt/src/dotfiles"
+
+
+bin_files () {
+    mkdir -p "$HOME/bin"
+    stow --restow bin/ -t "$HOME/bin"
+}
+
+dotfiles_bash () {
+    stow --restow bash/ -t "$HOME"
+}
+
+dotfiles_vim () {
+    stow --restow vim/ -t "$HOME"
+    vim -c "helptags ALL" -c q
+}
+
+dotfiles_tmux () {
+    stow --restow tmux/ -t "$HOME"
+}
+
+
+pushd "$dotfiles" > /dev/null
+bin_files
+dotfiles_bash
+dotfiles_vim
+dotfiles_tmux
+popd > /dev/null

@@ -1,0 +1,17 @@
+#!/bin/bash
+set -e -u
+
+args=(
+    "config"
+)
+
+if [[ "$*" == "--global" ]]
+then
+    args+=( "--global" )
+fi
+
+
+git "${args[@]}" user.name "No Name"
+git "${args[@]}" user.email "sourcecodere@gmail.com"
+git "${args[@]}" credential.helper cache
+
