@@ -3,6 +3,10 @@
 Dotfiles for Linux environment
 
 ```
+dnf install stow
+```
+
+```
 cd  /opt
 git clone --recursive-submodules git@gitlab.com:sourcecodere/dotfiles.git
 cd dotfiles
